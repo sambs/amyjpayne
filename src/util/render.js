@@ -22,7 +22,10 @@ export default element => `<!DOCTYPE html>
   <div id="contact-wrap">
     <div id="contact">
       <div id="contact-form-wrap">
-        <form id="contact-form" method="post" action="/contact/">
+        <form id="contact-form" name="contact" netlify-honeypot="bot-field" netlify>
+          <div class="bot-field">
+            <input name="bot-field" />
+          </div>
           <ul class="first-half">
             <li><h3>Contact Amy</h3></li>
             <li class="name">

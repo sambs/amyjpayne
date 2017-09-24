@@ -3,7 +3,7 @@
 $(function(){
   $('#contact-wrap').find('form').submit(function(){
     $.post(
-      '/contact/',
+      'thanks',
       $(this).serialize(),
       console.log,
       'html'

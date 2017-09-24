@@ -548,7 +548,10 @@ body.two-col #side.content {
   width: 50px;
   text-align: center;
   padding: 0px 5px
+}
 
+#contact-form .bot-field {
+  display: none;
 }
 
 /* Events/Engagements *******************************************************/
