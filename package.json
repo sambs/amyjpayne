@@ -1,0 +1,27 @@
+{
+  "scripts": {
+    "build": "./scripts/build.js",
+    "serve": "serve build"
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
+    "contentful": "^4.6.1",
+    "markdown-it": "^8.4.0",
+    "minimist": "^1.2.0",
+    "mkdirp-promise": "^5.0.1",
+    "ramda": "^0.24.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "recursive-copy": "^2.0.6",
+    "rmfr": "^1.0.3",
+    "serve": "^6.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.7.1",
+    "eslint-plugin-react": "^7.3.0"
+  },
+  "license": "UNLICENSED"
+}
