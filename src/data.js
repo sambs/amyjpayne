@@ -1,7 +1,6 @@
-import { pipeP, map, mapObjIndexed, keys, prop, path, pluck, groupBy } from 'ramda'
+import { pipeP, map, mapObjIndexed, merge, keys, prop, path, pluck, groupBy } from 'ramda'
 import { createClient } from 'contentful'
 import write from './util/write'
-//import { tap } from 'ramda'
 //import print from './util/print'
 
 import { CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_SPACE_ID } from '../config'
@@ -13,10 +12,10 @@ const contentful = createClient({
 
 const getEntries = pipeP(
   () => contentful.getEntries(),
-  //tap(print),
+  //print,
   prop('items'),
   groupBy(path([ 'sys', 'contentType', 'sys', 'id' ])),
-  map(pluck('fields')),
+  map(map(({ sys: { id }, fields }) => merge(fields, { id }))),
   mapObjIndexed((data, type) =>
     write(`data/${type}.json`, JSON.stringify(data, null, 2))
   ),
@@ -26,7 +25,7 @@ const getEntries = pipeP(
 
 const getAssets = pipeP(
   () => contentful.getAssets(),
-  //tap(print),
+  //print,
   prop('items'),
   pluck('fields'),
   x => JSON.stringify(x, null, 2),

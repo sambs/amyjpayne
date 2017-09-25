@@ -1,5 +1,7 @@
 import Markdown from './markdown'
 
-export default ({ content }) => (
+const Biography = ({ content }) => (
   <Markdown id="biography-content" content={content} />
 )
+
+export default Biography

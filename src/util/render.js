@@ -13,9 +13,9 @@ export default element => `<!DOCTYPE html>
       <ul id="main-nav">
         <li><a href="/"></a></li>
         <li><a href="/biography.html">Biography</a></li>
-        <li><a href="/engagements.html/">Engagements</a></li>
-        <li><a id="contact-link" href="#">Contact</a></li>
+        <li><a href="/engagements.html">Engagements</a></li>
         <li><a href="/media.html">Media</a></li>
+        <li><a id="contact-link" href="#">Contact</a></li>
       </ul>
       </div>
   </div>

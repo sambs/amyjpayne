@@ -1,20 +1,15 @@
-import { tap, pipeP, prop, pluck } from 'ramda'
-import print from './util/print'
-import contentful from './util/contentful'
+import { pipe, prop } from 'ramda'
 import render from './util/render'
 import write from './util/write'
 import Engagement from './components/engagement'
 
-export default pipeP(
-  () => contentful.getEntries({ content_type: 'staticContent' }),
-  prop('items'),
-  pluck('fields'),
-  //tap(print),
+export default pipe(
+  prop('engagements'),
   engagements => (
-    <div>
-      {engagements.map(engagment => <Engagement {...engagment} />)}
-    </div>
+    <ul className="engagements">
+      {engagements.map(engagment => <Engagement key={engagment.id} {...engagment} />)}
+    </ul>
   ),
   render,
-  write('engagements.html')
+  write('build/engagements.html')
 )

@@ -4,13 +4,12 @@ import copy from 'recursive-copy'
 import handleError from './util/error'
 import { pipeP } from 'ramda'
 import { BUILD_PATH } from '../config'
-//import engagements from './engagements'
+import engagements from './engagements'
 import home from './home'
 import biography from './biography'
 import data from './data'
 
-const sections = [ home, biography ]
-//const sections = [ home, engagements ]
+const sections = [ home, biography, engagements ]
 
 const buildSections = data =>
   Promise.all(sections.map(section => section(data)))

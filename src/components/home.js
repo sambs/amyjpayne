@@ -1,6 +1,6 @@
 import Markdown from './markdown'
 
-export default ({ content }) => (
+const Home = ({ content }) => (
   <div>
     <img id="homepage-image" src="/images/amyp-main.jpg" />
     <div>
@@ -13,3 +13,5 @@ export default ({ content }) => (
     </div>
   </div>
 )
+
+export default Home

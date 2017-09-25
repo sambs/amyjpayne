@@ -7,13 +7,13 @@ caption,th {text-align:left;}
 h1,h2,h3,h4,h5,h6 {font-weight:normal;}
 q:before,q:after {content:'';}
 abbr,acronym { border:0;}
-body{font-size:62.5%;}
+body{font-size:75%;}
 
 /* HEADINGS & TEXT *******************************************************/
 
 body {
   font-family: Helvetica Nueue, Helvetica, Arial, sans-serif;
-  color: #bbb;
+  color: #eee;
 
 }
 
@@ -29,7 +29,9 @@ h1 {
 }
 
 h2 {
-  font-size: 2.1em;
+  font-size: 1.8em;
+  line-height: 1.5em;
+  font-weight: bold;
   margin-bottom: 5px;
 }
 
@@ -48,8 +50,8 @@ h4 {
 
 p {
   font-size: 1.3em;
-  margin-bottom: 1.3em;
-  line-height: 1.3em;
+  margin-bottom: 1.5em;
+  line-height: 1.6em;
 }
 
 p:last {
@@ -82,7 +84,7 @@ hr {
 }
 
 blockquote {
-  font: italic 1.5em Georgia, "Times New Roman", Times, serif;
+  font: italic 1.2em Georgia, "Times New Roman", Times, serif;
   color: #38889f;
   padding-left: 2em;
 }
@@ -110,7 +112,7 @@ form li {
 form input, textarea {
   color: #fff;
   font-size: 13px;
-  padding: 1px 0;
+  padding: 3px 5px;
   background-color: #333;
   border: 1px solid #ccc;
   font-family: Helvetica Nueue, Helvetica, Arial, sans-serif;
@@ -170,7 +172,6 @@ body {
   background: #111;
   border-bottom: 3px solid #999;
   -webkit-box-shadow: 0 0 30px #000;
-
 }
 
 #header {
@@ -183,9 +184,8 @@ body {
 }
 
 #body {
-  display: inline-block;
   width: 100%;
-  margin-bottom: 30px;
+  margin: 50px 0 30px;
 }
 
 #content {
@@ -221,8 +221,6 @@ body {
 
 /* NAV *******************************************************/
 
-
-
 #main-nav li {
   display: inline-block;
   float: left;
@@ -232,7 +230,7 @@ body {
 #main-nav a {
   display: inline-block;
   color: #f9fff8;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: normal;
   padding: 28px 8px 4px;
   text-decoration: none;
@@ -251,31 +249,18 @@ body {
 
 /* FOOTER *******************************************************/
 
-
 #footer {
-  /* Use Arial as Verdana is too wide */
-  font-family: "MuseoSans500", Arial, sans-serif;
+  font-family: Helvetica Nueue, Helvetica, Arial, sans-serif;
   width: 100%;
   display: inline-block;
   margin-bottom: 3px;
   border-top: 1px solid #999;
-  padding-top: 1px;
+  padding-top: 3px;
+  font-size: 1.2em;
 }
 
 #copyright {
-  font-size: 13px;
   float: left;
-}
-
-#site-by {
-  font-size: 13px;
-  float: right;
-}
-
-/* USER SELECTABLE *******************************************************/
-
-#error-page {
- margin-top: 50px;
 }
 
 /* USER SELECTABLE *******************************************************/
@@ -350,27 +335,12 @@ ul.lightbox-thumbs li {
   display: inline-block;
 }
 
-
-/*.pp_description {
-  display: inline-block;
-  font-size: 1.5em;
-  line-height: 24px;
-}
-.pp_nav {
-  float: left;
-  clear: none;
-  margin-right: 5px;
-}*/
-
-
 /* HOME *******************************************************/
-
 
 #homepage-image {
   display: inline-block;
   float: left;
   width: 300px;
-  margin-top: 30px;
   margin-bottom: 0;
   border: 1px solid #808080;
   -webkit-box-shadow: 1px 1px 8px #000;
@@ -381,7 +351,6 @@ ul.lightbox-thumbs li {
   display: inline-block;
   float: right;
   width: 550px;
-  margin-top: 30px;
 }
 
 #homepage-content blockquote {
@@ -412,29 +381,11 @@ ul.lightbox-thumbs li {
 #zoom {
   z-index: 999;
 }
-/* TwoCol *******************************************************/
-
-body.two-col #content.content {
-  float: left;
-  width: 430px;
-}
-
-body.two-col #side.content {
-  float: right;
-  width: 270px;
-  margin-top: 30px;
-  margin-right: -10px;
-}
 
 /* BIOGRAPHY *******************************************************/
 
 #biography-content {
-  -moz-column-count: 3;
-  -webkit-column-count: 3;
-  -moz-column-gap: 20px;
-  -webkit-column-gap: 20px;
-  text-align: justify;
-  margin-top: 30px;
+  margin: 50px;
 }
 
 /* CONTACT *******************************************************/
@@ -469,7 +420,6 @@ body.two-col #side.content {
 
 #contact h3 {
   font-size: 1.5em;
-  margin-bottom: 0.5em;
 }
 
 #phone-wrap {
@@ -497,6 +447,7 @@ body.two-col #side.content {
 #contact-form-wrap h3 {
   width: 284px;
   float: left;
+  margin-bottom: 4px;
 }
 
 #contact-form ul {
@@ -527,7 +478,7 @@ body.two-col #side.content {
 }
 
 #contact-form input {
-  width: 256px;
+  width: 246px;
   float: left;
 }
 
@@ -556,53 +507,46 @@ body.two-col #side.content {
 
 /* Events/Engagements *******************************************************/
 
-.event-wrap {
-  width: 45%;
-  margin-top: 30px;
-  background: #333;
-  padding: 1% 2% 1%;
-}
-
-#upcoming-events-wrap {
-  float: left;
-}
-
-#past-events-wrap {
-  float: right;
-}
-
 .event-wrap h2 {
   padding-bottom: 2px;
   margin-bottom:1px;
   color: #dd3e40;
   font-variant: small-caps;
 }
-.event-wrap li {
+
+.engagements {
+  margin-bottom: 50px;
+}
+
+.engagement {
+  padding: 2%;
+  background: #333;
   margin-bottom: 25px;
 }
-.events h3.summary {
-  padding-bottom: 1px;
-  margin-bottom: 2px;
+
+.engagement-title {
+  padding-bottom: 3px;
+  margin-bottom: 4px;
   border-bottom: 1px solid #555;
 }
 
-.events .details {
-  margin-bottom: 8px;
+.engagement-details {
+  margin-bottom: 10px;
   font-family: Georgia, Times, serif;
   font-size: 1.3em;
   color: #bbb;
 }
 
-.events .dtstart {}
+.engagement-dtstart {}
 
-.events .location {}
+.engagement-location {}
 
-.events div.description p {
+.engagement-description p {
   margin-bottom: 8px;
   color: #eee;
 }
 
-.events a.url {
+.engagement-url {
   display: block;
   font-size: 1.3em;
 }

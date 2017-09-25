@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "./scripts/build.js",
-    "serve": "serve build"
+    "serve": "PORT=8000 serve build"
   },
   "dependencies": {
     "babel-plugin-transform-react-jsx": "^6.24.1",

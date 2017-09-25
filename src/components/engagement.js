@@ -1,14 +1,15 @@
-export default ({ title, dateDescription, description }) => (
-  <div id="project-event-122">
-    <li>
-      <h3 className="summary">{title}</h3>
-      <div className="details"><span className="dtstart">{dateDescription}</span>
-      - <span className="location">Leeds, Hull, Nottingham, Newcastle, and Salford.</span>
-      </div>
-      <div className="description">
-        <p>{description}</p>
-      </div>
-      <a className="url" href="http://www.operanorth.co.uk/">More info</a>
-    </li>
-  </div>
+const Engagement = ({ title, dateDescription, location, description, link }) => (
+  <li className="engagement">
+    <h3 className="engagement-title">{title}</h3>
+    <div className="engagement-details">
+      <span className="engagement-dtstart">{dateDescription}</span>
+      - <span className="engagement-location">{location}</span>
+    </div>
+    <div className="engagement-description">
+      <p>{description}</p>
+    </div>
+    {link && <a className="engagement-link" href={link}>More info</a>}
+  </li>
 )
+
+export default Engagement
