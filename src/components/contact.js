@@ -2,7 +2,7 @@ export default () => (
   <div id="contact-wrap">
     <div id="contact">
       <div id="contact-form-wrap">
-        <form id="contact-form" method="post" action="/contact/">
+        <form id="contact-form" name="contact" data-netlify-honeypot="bot-field" data-netlify>
           <ul className="first-half">
             <li><h3>Contact Amy</h3></li>
             <li className="name">
@@ -25,6 +25,9 @@ export default () => (
             </li>
             <li><input className="submit" type="submit" name="submit" value="send" /></li>
           </ul>
+          <div className="bot-field">
+            <input name="bot-field" />
+          </div>
         </form>
       </div>
     </div>

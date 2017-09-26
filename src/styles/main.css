@@ -391,7 +391,7 @@ ul.lightbox-thumbs li {
   display: none;
   position: relative;
   border-bottom: 3px solid #999;
-  background: url(/assets/site/images/bg_gradient.jpg) repeat-x 0 0;
+  background: url(../images/bg-gradient.jpg) repeat-x 0 0;
 }
 
 #contact {
@@ -412,7 +412,7 @@ ul.lightbox-thumbs li {
   bottom: 0;
   width: 100%;
   height: 31px;
-  background: url(/assets/site/images/bg_gradient_rev.jpg) repeat-x 0 0;
+  background: url(../images/bg-gradient-rev.jpg) repeat-x 0 0;
 }
 
 #contact h3 {
@@ -430,7 +430,6 @@ ul.lightbox-thumbs li {
   display: block;
   font-size: 1.5em;
 }
-
 
 #contact-form-wrap {
   float: left;
