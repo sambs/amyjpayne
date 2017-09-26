@@ -4,10 +4,10 @@ import copy from 'recursive-copy'
 import handleError from './util/error'
 import { pipeP } from 'ramda'
 import { BUILD_PATH } from '../config'
-import engagements from './engagements'
-import home from './home'
-import biography from './biography'
 import data from './data'
+import engagements from './sections/engagements'
+import home from './sections/home'
+import biography from './sections/biography'
 
 const sections = [ home, biography, engagements ]
 
@@ -27,4 +27,5 @@ export default ({ useDataCache }) =>
       staticContent: require('../data/staticContent.json'),
     }),
     buildSections,
+    () => console.log('Built'),
   )().catch(handleError)

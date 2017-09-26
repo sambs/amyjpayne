@@ -10,7 +10,7 @@ $(function(){
     )
     return false
   })
-  
+
   $('#contact-link').click(function(){
     $('#contact-wrap').slideToggle('slow')
     return false
