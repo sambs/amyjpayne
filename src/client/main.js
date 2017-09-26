@@ -1,4 +1,4 @@
-/* global $: true */
+import $ from 'jquery'
 
 $(function(){
   $('#contact-wrap').find('form').submit(function(){
