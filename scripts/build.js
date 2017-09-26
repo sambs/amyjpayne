@@ -2,10 +2,16 @@
 
 require('babel-register')
 
+const { resolve } = require('path')
+const { pipeP } = require('ramda')
 const parseArgs = require('minimist')
+const rmdir = require('rmfr')
+const mkdirp = require('mkdirp-promise')
 const webpack = require('webpack')
 const webpackConfig = require('../webpack.config')
 const fetchData = require('../src/data')
+
+const dataDir = resolve(`${__dirname}/../data`)
 
 const options = {
   boolean: ['watch'],
@@ -45,7 +51,13 @@ const runWebpack = () => {
   else compiler.run(callback)
 }
 
-fetchData.default()
-  .then(() => console.log('Data fetched'))
-  .then(runWebpack)
-  .catch(console.error)
+const run = pipeP(
+  () => rmdir(webpackConfig.output.path),
+  () => rmdir(dataDir),
+  () => mkdirp(dataDir),
+  fetchData.default,
+  () => console.log('Data fetched'),
+  runWebpack
+)
+
+run().catch(console.error)
