@@ -1,17 +1,10 @@
-import { pipe, map, reduce, concat, fromPairs } from 'ramda'
+import { routes } from './util/routes'
 import home from './routes/home'
 import engagements from './routes/engagements'
 import biography from './routes/biography'
 
-const routes = [
+export default routes([
   [ '/', home ],
   [ '/engagements', engagements ],
   [ '/biography', biography ],
-]
-
-export default () =>
-  pipe(
-    map(([ path, fn ]) => fn({ path })),
-    reduce(concat, []),
-    fromPairs,
-  )(routes)
+])
