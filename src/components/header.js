@@ -11,7 +11,7 @@ const pages = [
 
 const Header = pipe(
   ({ path }) => map(
-    page => merge(page, { active: startsWith(path, page.path) }),
+    page => merge(page, { active: path != '/' && startsWith(path, page.path) }),
     pages,
   ),
   pages => (
@@ -22,7 +22,7 @@ const Header = pipe(
           {pages.map(({ path, title, active }) =>
             <li key={path}>
               <a
-                id={`${title}-link`}
+                id={`${title.toLowerCase()}-link`}
                 className={classNames({ 'main-nav-item': true, 'active': active })}
                 href={path}
                 children={title}

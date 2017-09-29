@@ -13,7 +13,7 @@ const [ past, upcoming ] = compose(
   map(evolve({ date: d => new Date(d) })),
 )(engagements)
 
-const render = route(({ path, items, upcoming, pages }) => console.log(path, pages) ||
+const render = route(({ path, items, upcoming, pages }) =>
   <Layout path={path}>
     <div>
       <div className="engagement-nav">
