@@ -514,6 +514,22 @@ ul.lightbox-thumbs li {
   margin-bottom: 50px;
 }
 
+.engagement-nav {
+  margin-bottom: 10px;
+}
+
+.engagement-nav-item {
+  font-size: 1.3em;
+  background: #333;
+  padding: 3px 5px;
+  margin-right: 5px;
+  text-decoration: none;
+}
+
+.engagement-nav-item.active {
+  color: #dd3e40;
+}
+
 .engagement {
   padding: 2%;
   background: #333;
