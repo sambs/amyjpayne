@@ -3,14 +3,14 @@ import styles from '../styles/main.css'
 import Header from './header'
 import ContactForm from './contact'
 
-const Layout = ({ children }) => (
+const Layout = ({ path, children }) => (
   <html lang="en">
     <head>
       <title>Amy J Payne</title>
       <link rel="stylesheet" href={styles} type="text/css" media="screen"/>
     </head>
     <body>
-      <Header />
+      <Header path={path} />
       <ContactForm />
       <div id="wrap">
         <div id="body">

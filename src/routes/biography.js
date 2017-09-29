@@ -6,8 +6,8 @@ import staticContent from '../../data/staticContent.json'
 
 const { content } = find(propEq('location', 'Biography'), staticContent)
 
-export default route(() =>
-  <Layout>
+export default route(({ path }) =>
+  <Layout path={path}>
     <Markdown id="biography-content" content={content} />
   </Layout>
 )

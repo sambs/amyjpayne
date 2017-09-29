@@ -14,7 +14,7 @@ const [ past, upcoming ] = compose(
 )(engagements)
 
 const render = route(({ path, items, upcoming, pages }) => console.log(path, pages) ||
-  <Layout>
+  <Layout path={path}>
     <div>
       <div className="engagement-nav">
         <a

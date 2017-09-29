@@ -202,10 +202,6 @@ body {
   width: 300px
 }
 
-#header a {
-  background: none;
-}
-
 #header a:hover {
   text-decoration: none;
   text-shadow: none;
@@ -226,7 +222,7 @@ body {
   margin-left: 28px;
 }
 
-#main-nav a {
+.main-nav-item {
   display: inline-block;
   color: #f9fff8;
   font-size: 20px;
@@ -235,12 +231,12 @@ body {
   text-decoration: none;
 }
 
-#main-nav li:hover a {
+.main-nav-item:hover {
   background-color: #4c1516;
 
 } 
 
-#main-nav li.current a {
+.main-nav-item.active {
   background-color: #dd3e40;
   color: #fff;
   background-image: none;

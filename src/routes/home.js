@@ -7,8 +7,8 @@ import staticContent from '../../data/staticContent.json'
 
 const { content } = find(propEq('location', 'Home'), staticContent)
 
-export default route(() =>
-  <Layout>
+export default route(({ path }) =>
+  <Layout path={path}>
     <div>
       <img id="homepage-image" src={mainImage} />
       <div>

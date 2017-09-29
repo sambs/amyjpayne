@@ -1,18 +1,38 @@
+import { pipe, merge, map, startsWith } from 'ramda'
+import classNames from 'classnames'
 import logo from '../images/logo.png'
 
-const Header = () => (
-  <div id="header-wrap">
-    <div id="header">
-      <h1><a href="/"><img src={logo} alt="Amy J Payne" /></a></h1>
-      <ul id="main-nav">
-        <li><a href="/"></a></li>
-        <li><a href="/biography/">Biography</a></li>
-        <li><a href="/engagements/">Engagements</a></li>
-        <li><a href="/media/">Media</a></li>
-        <li><a id="contact-link" href="#">Contact</a></li>
-      </ul>
+const pages = [
+  { path: '/biography/', title: 'Biography' },
+  { path: '/engagements/', title: 'Engagements' },
+  { path: '/media/', title: 'Media' },
+  { path: '/contact/', title: 'Contact' },
+]
+
+const Header = pipe(
+  ({ path }) => map(
+    page => merge(page, { active: startsWith(path, page.path) }),
+    pages,
+  ),
+  pages => (
+    <div id="header-wrap">
+      <div id="header">
+        <h1><a href="/"><img src={logo} alt="Amy J Payne" /></a></h1>
+        <ul id="main-nav">
+          {pages.map(({ path, title, active }) =>
+            <li key={path}>
+              <a
+                id={`${title}-link`}
+                className={classNames({ 'main-nav-item': true, 'active': active })}
+                href={path}
+                children={title}
+              />
+            </li>
+          )}
+        </ul>
+      </div>
     </div>
-  </div>
+  ),
 )
 
 export default Header
