@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build": "./scripts/build.js",
-    "serve": "PORT=8000 serve build"
+    "serve": "PORT=8000 serve build",
+    "sync": "./scripts/sync.js"
   },
   "dependencies": {
     "babel-loader": "^7.1.2",

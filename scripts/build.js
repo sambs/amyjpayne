@@ -3,13 +3,13 @@
 require('babel-register')
 
 const { resolve } = require('path')
-const { pipeP } = require('ramda')
+const { tap, pipeP } = require('ramda')
 const parseArgs = require('minimist')
 const rmdir = require('rmfr')
 const mkdirp = require('mkdirp-promise')
 const webpack = require('webpack')
 const webpackConfig = require('../webpack.config')
-const fetchData = require('../src/data')
+const { initialSync, nextSync } = require('../src/data')
 
 const dataDir = resolve(`${__dirname}/../data`)
 
@@ -47,6 +47,7 @@ const callback = (err, stats) => {
 }
 
 const runWebpack = () => {
+  console.log('run')
   if (args.watch) compiler.watch({}, callback)
   else compiler.run(callback)
 }
@@ -55,9 +56,12 @@ const run = pipeP(
   () => rmdir(webpackConfig.output.path),
   () => rmdir(dataDir),
   () => mkdirp(dataDir),
-  fetchData.default,
-  () => console.log('Data fetched'),
-  runWebpack
+  initialSync,
+  tap(() => console.log(args.watch ? 'Initial sync complete' : 'Data fetched')),
+  nextSyncToken => Promise.all([
+    runWebpack(),
+    args.watch ? nextSync(nextSyncToken) : null,
+  ])
 )
 
 run().catch(console.error)
