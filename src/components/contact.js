@@ -1,3 +1,5 @@
+import React from 'react'
+
 export default () => (
   <div id="contact-wrap">
     <div id="contact">

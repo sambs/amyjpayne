@@ -1,6 +1,6 @@
+import React from 'react'
 import { pipe, merge, map, startsWith } from 'ramda'
 import classNames from 'classnames'
-import logo from '../images/logo.png'
 
 const pages = [
   { path: '/biography/', title: 'Biography' },
@@ -17,7 +17,7 @@ const Header = pipe(
   pages => (
     <div id="header-wrap">
       <div id="header">
-        <h1><a href="/"><img src={logo} alt="Amy J Payne" /></a></h1>
+        <h1><a href="/"><img src="/images/logo.png" alt="Amy J Payne" /></a></h1>
         <ul id="main-nav">
           {pages.map(({ path, title, active }) =>
             <li key={path}>

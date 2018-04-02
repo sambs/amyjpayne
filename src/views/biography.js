@@ -1,13 +1,10 @@
-import { find, propEq } from 'ramda'
-import { route } from '../util/routes'
+import React from 'react'
 import Layout from '../components/layout'
 import Markdown from '../components/markdown'
 import staticContent from '../../data/staticContent.json'
 
-const { content } = find(propEq('location', 'Biography'), staticContent)
-
-export default route(({ path }) =>
+export default ({ path, context: { content } }) =>
   <Layout path={path}>
     <Markdown id="biography-content" content={content} />
   </Layout>
-)
+

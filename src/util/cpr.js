@@ -1,10 +1,11 @@
-import { writeFile } from 'fs'
+import { exec } from 'child_process'
 import { curry } from 'ramda'
 
-export default curry((path, contents) =>
+export default curry((src, dest) =>
   new Promise((resolve, reject) =>
-    writeFile(path, contents, error =>
+    exec(`cp -r ${src} ${dest}`, error =>
       error ? reject(error) : resolve()
     )
   )
 )
+

@@ -1,5 +1,5 @@
+import React from 'react'
 import { Children } from 'react'
-import styles from '../styles/main.css'
 import Header from './header'
 import ContactForm from './contact'
 
@@ -7,7 +7,7 @@ const Layout = ({ path, children }) => (
   <html lang="en">
     <head>
       <title>Amy J Payne</title>
-      <link rel="stylesheet" href={styles} type="text/css" media="screen"/>
+      <link rel="stylesheet" href="/styles/main.css" type="text/css" media="screen"/>
     </head>
     <body>
       <Header path={path} />

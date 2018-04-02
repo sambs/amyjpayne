@@ -1,19 +1,9 @@
-import { partition, compose, splitEvery, map, evolve, reverse, sortBy, prop, over, lensIndex } from 'ramda'
+import React from 'react'
+import { map } from 'ramda'
 import classNames from 'classnames'
-import { route, routes, paged } from '../util/routes'
 import Layout from '../components/layout'
-import engagements from '../../data/engagements.json'
 
-const now = new Date()
-
-const [ past, upcoming ] = compose(
-  over(lensIndex(0), compose(splitEvery(10), reverse)),
-  partition(e => e.date < now),
-  sortBy(prop('date')),
-  map(evolve({ date: d => new Date(d) })),
-)(engagements)
-
-const render = route(({ path, items, upcoming, pages }) =>
+const render = ({ path, context: { items, upcoming, pages } }) =>
   <Layout path={path}>
     <div>
       <div className="engagement-nav">
@@ -59,9 +49,5 @@ const render = route(({ path, items, upcoming, pages }) =>
       </ul>
     </div>
   </Layout>
-)
 
-export default routes([
-  [ '/', render, { items: upcoming, upcoming: true } ],
-  [ '/past', paged(render, past, { upcoming: false }) ],
-])
+export default render

@@ -1,16 +1,11 @@
-import { find, propEq } from 'ramda'
-import { route } from '../util/routes'
+import React from 'react'
 import Markdown from '../components/markdown'
 import Layout from '../components/layout'
-import mainImage from '../images/amyp-main.jpg'
-import staticContent from '../../data/staticContent.json'
 
-const { content } = find(propEq('location', 'Home'), staticContent)
-
-export default route(({ path }) =>
+export default ({ path, context: { content } }) =>
   <Layout path={path}>
     <div>
-      <img id="homepage-image" src={mainImage} />
+      <img id="homepage-image" src="/images/amyp-main.jpg" />
       <div>
         <Markdown id="homepage-content" content={content} />
         <div id="homepage-images">
@@ -21,4 +16,3 @@ export default route(({ path }) =>
       </div>
     </div>
   </Layout>
-)
