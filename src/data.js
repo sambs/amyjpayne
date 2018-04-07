@@ -1,12 +1,13 @@
 import {
   tap, pipeP, pipe, head, map, mapObjIndexed, merge, evolve, keys, prop,
-  groupBy, ifElse, append, when, eqProps, always,
+  groupBy, ifElse, append, when, eqProps, always, over, lensProp,
 } from 'ramda'
 
 import { createClient } from 'contentful'
 import { read, write } from './util/data'
 import wait from './util/wait'
 import tapP from './util/tap-p'
+import print from './util/print'
 
 import { LOCALE, CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_SPACE_ID } from '../config'
 
@@ -18,16 +19,19 @@ const contentful = createClient({
 })
 
 const formatEntry = pipe(
-  evolve({ fields: map(prop(LOCALE)) }),
+  over(
+    lensProp('fields'),
+    map(
+      pipe(
+        prop(LOCALE),
+        when(Array.isArray, map(entry => formatEntry(entry)))
+      )
+    )
+  ),
   ({
-    sys: {
-      contentType: { sys: { id: contentType } },
-      id,
-      createdAt,
-      updatedAt,
-    },
+    sys: { id, createdAt, updatedAt, contentType },
     fields,
-  }) => merge(fields, { id, contentType, createdAt, updatedAt }),
+  }) => merge(fields, { id, createdAt, updatedAt, contentType: contentType && contentType.sys.id }),
 )
 
 const writeEntries = pipe(
@@ -84,14 +88,18 @@ const addOrUpdateAsset = pipe(
 const initialSync = pipeP(
   () => contentful.sync({ initial: true, locale: 'en-GB' }),
   ({ nextSyncToken, entries, assets }) => Promise.all([
-    nextSyncToken, writeEntries(entries), writeAssets(assets),
+    nextSyncToken, 
+    writeEntries(entries),
+    writeAssets(assets),
+    write('rawEntries.json', entries),
+    write('rawAssets.json', assets),
   ]),
   head
 )
 
 const nextSync = pipeP(
   nextSyncToken => contentful.sync({ nextSyncToken }),
-  tap(() => console.log('Got next')),
+  tap(() => print('Got next')),
   tapP(({ entries, assets }) =>
     Promise.all([
       ...map(addOrUpdateEntry, entries),

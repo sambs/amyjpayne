@@ -23,7 +23,6 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 2.4em;
-  color: #24669c;
   margin-bottom: 7px;
 }
 
@@ -497,6 +496,20 @@ ul.lightbox-thumbs li {
   display: none;
 }
 
+/* Media ********************************************************************/
+
+.media-left {
+  float: left;
+  width: 500px;
+}
+
+.media-right {
+  float: right;
+  width: 270px;
+  margin-top: 30px;
+  margin-right: -10px;
+}
+
 /* Events/Engagements *******************************************************/
 
 .event-wrap h2 {
@@ -557,24 +570,4 @@ ul.lightbox-thumbs li {
 .engagement-url {
   display: block;
   font-size: 1.3em;
-}
-
-/* Pretty Photo *******************************************************/
-
-.pp_top,
-.pp_bottom {
-  display: none;
-}
-
-div.pp_default .pp_content_container .pp_left,
-div.pp_default .pp_content_container .pp_right {
-  background-image: none;
-}
-
-.pp_nav {
-  margin: 0 10px 0 4px;
-}
-
-div.pp_default .pp_content_container .pp_details {
-  margin-top: 4px;
 }

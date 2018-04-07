@@ -16,6 +16,9 @@ $(function(){
     return false
   })
 
+
+  $("a[rel^='prettyPhoto']").prettyPhoto({ animationSpeed:'normal', social_tools: false })
+
   //$('a.fancyzoom').fancyZoom({
     //scaleImg: true,
     //closeOnClick: true,

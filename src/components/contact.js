@@ -6,21 +6,21 @@ export default () => (
           <ul className="first-half">
             <li><h3>Contact Amy</h3></li>
             <li className="name">
-              <label className="required" for="id_name">Name:</label>
+              <label className="required" htmlFor="id_name">Name:</label>
               <input type="text" name="name" id="id_name" />
             </li>
             <li className="email">
-              <label className="required" for="id_email">Email:</label>
+              <label className="required" htmlFor="id_email">Email:</label>
               <input type="text" name="email" id="id_email" />
             </li>
             <li className="phone">
-              <label className="required" for="id_phone">Phone:</label>
-              <input id="id_phone" type="text" name="phone" maxlength="16" />
+              <label className="required" htmlFor="id_phone">Phone:</label>
+              <input id="id_phone" type="text" name="phone" maxLength="16" />
             </li>
           </ul>
           <ul className="second-half">
             <li className="message">
-              <label className="required" for="id_message">Message:</label>
+              <label className="required" htmlFor="id_message">Message:</label>
               <textarea id="id_message" rows="10" cols="40" name="message"></textarea>
             </li>
             <li><input className="submit" type="submit" name="submit" value="send" /></li>

@@ -24,6 +24,7 @@ module.exports = {
   externals: { jquery: 'jQuery' },
 
   module: {
+    noParse: [ /jquery.prettyphoto.js/ ],
     rules: [
       {
         test: /\.js$/,
