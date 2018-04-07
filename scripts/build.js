@@ -9,10 +9,11 @@ const rmdir = require('rmfr')
 const mkdirp = require('mkdirp-promise')
 const { initialSync, nextSync } = require('../src/data')
 const { default: build } = require('../src/static')
-const { default: cpr } = require('../src/util/cpr')
+const { default: execP } = require('../src/util/exec-p')
 
 const dataDir = resolve(`${__dirname}/../data`)
 const buildDir = resolve(`${__dirname}/../build`)
+const publicDir = resolve(`${__dirname}/../public`)
 
 const options = {
   boolean: ['watch'],
@@ -33,7 +34,7 @@ const run = pipeP(
     build(),
     args.watch ? nextSync(nextSyncToken) : null,
   ]),
-  () => cpr('public/', buildDir)
+  () => execP(`cp -r ${publicDir}/ ${buildDir}`)
 )
 
 run().catch(console.error)
