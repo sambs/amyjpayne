@@ -1,4 +1,8 @@
-import { ap, append, addIndex, partition, compose, flip, splitEvery, map, evolve, reverse, sortBy, prop, over, lensIndex } from 'ramda'
+import {
+  ap, append, addIndex, partition, compose, flip, splitEvery, map, evolve, reverse,
+  sortBy, prop, over, lensIndex, merge,
+} from 'ramda'
+
 import engagements from '../../data/engagements.json'
 import * as views from '../views'
 
@@ -13,10 +17,10 @@ const [ past, upcoming ] = compose(
   map(evolve({ date: d => new Date(d) })),
 )(engagements)
 
-const paged = (path, items) =>
+const paged = (path, view, context, items) =>
   compose(
     map(([ items, index, path, pages ]) =>
-      ([ path, views.engagements, { items, index, pages } ])
+      ([ path, view, merge(context, { items, index, pages }) ])
     ),
     ap(
       routes => pages => map(append(pages), routes),
@@ -34,5 +38,5 @@ const paged = (path, items) =>
 
 export default path => ([
   [ path + '/', views.engagements, { items: upcoming, upcoming: true } ],
-  ...paged(path + '/past/', past)
+  ...paged(path + '/past/', views.engagements, { upcoming: false }, past)
 ])
