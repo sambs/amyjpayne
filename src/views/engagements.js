@@ -22,6 +22,7 @@ const render = ({ path, context: { items, upcoming, pages } }) =>
             {pages.map(({ number, path: pagePath }) => (
               <a
                 className={classNames({ 'engagement-nav-item': true, active: path == pagePath })}
+                key={number}
                 href={pagePath}
                 children={number}
               />
