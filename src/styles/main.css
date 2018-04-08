@@ -308,6 +308,11 @@ a.fancyzoom {
   display: inline-block;
 }
 
+#zoom_img {
+  border: 10px solid #fff;
+  border-radius: 5px;
+}
+
 div.quotebox {
   padding: 10px 10px 1px;
   margin-top: 25px;

@@ -17,11 +17,7 @@ $(function(){
   })
 
 
-  $("a[rel^='prettyPhoto']").prettyPhoto({ animationSpeed:'normal', social_tools: false })
+  $('a[rel^="prettyPhoto"]').prettyPhoto({ animationSpeed: 'normal', social_tools: false })
 
-  //$('a.fancyzoom').fancyZoom({
-    //scaleImg: true,
-    //closeOnClick: true,
-    //directory: '/assets/fancyzoom/images',
-  //})
+  $('a.fancyzoom').fancyZoom({})
 })

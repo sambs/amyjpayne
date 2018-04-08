@@ -5,8 +5,10 @@ import Layout from '../components/layout'
 import mainImage from '../images/amyp-main.jpg'
 import staticContent from '../../data/staticContent.json'
 import engagements from '../../data/engagements.json'
+import galleries from '../../data/gallery.json'
 
 const { content } = find(propEq('location', 'Home'), staticContent)
+const { images } = find(propEq('location', 'Home'), galleries)
 
 const now = new Date()
 
@@ -25,6 +27,11 @@ export default route(({ path }) =>
         <Markdown id="homepage-content" content={content} />
         <div id="homepage-images">
           <h4>LATEST PHOTOS</h4>
+          {images.map(({ id, title, file: { url } }) => (
+            <a key={id} href={url} class="fancyzoom">
+              <img src={`${url}?w=79&h=120`} alt={title} />
+            </a>
+          ))}
         </div>
         {engagement &&
           <div id="homepage-featured-gig" className="events">
