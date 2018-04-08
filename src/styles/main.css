@@ -354,23 +354,20 @@ ul.lightbox-thumbs li {
   width: 550px;
 }
 
-#homepage-content blockquote {
-}
-
 #homepage-featured-gig {
   position: relative;
   float: left;
   width: 240px;
   background: #333;
   padding: 10px 10px 1px;
-  margin-top: 15px;
+  margin: 15px 0;
 }
 
 #homepage-images {
   float: right;
   background: #333;
   padding: 10px 0 1px 10px;
-  margin-top: 15px;
+  margin: 15px 0;
   width: 240px;
 }
 

@@ -23,8 +23,8 @@ export default route(({ path }) =>
   <Layout path={path}>
     <div>
       <img id="homepage-image" src={mainImage} />
-      <div>
-        <Markdown id="homepage-content" content={content} />
+      <div id="homepage-content">
+        <Markdown content={content} />
         <div id="homepage-images">
           <h4>LATEST PHOTOS</h4>
           {images.map(({ id, title, file: { url } }) => (
