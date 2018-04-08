@@ -91,6 +91,10 @@ h2 + blockquote {
  margin-top: 25px;
 }
 
+blockquote p:last-child {
+  margin-bottom: 0.5em;
+}
+
 .content li {
   margin-left: 2em;
   list-style: disc;
